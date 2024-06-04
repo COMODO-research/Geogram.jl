@@ -61,6 +61,6 @@ Geogram.jl is released open source under the [MIT license](https://github.com/CO
 Voronoi Parallel Linear Enumeration. In: Jiao X., Weill JC. (eds)
 Proceedings of the 21st International Meshing Roundtable. Springer,
 Berlin, Heidelberg. doi: 10.1007/978-3-642-33573-0_21](https://doi.org/10.1007/978-3-642-33573-0_21 ) 
-* http://alice.loria.fr/publications/papers/2012/Vorpaline_IMR/vorpaline.pdf
+* https://inria.hal.science/hal-00804558/file/vorpaline.pdf
 * https://www.ljll.math.upmc.fr/hecht/ftp/ff++days/2013/BrunoLevy.pdf
 
