@@ -15,16 +15,6 @@ elseif testCase == 2
     M = load(fileName_mesh)
     F = [TriangleFace{Int64}(f) for f in faces(M)]
     V = [Point{3,Float64}(v) for v in coordinates(M)] # Get coordinates 
-elseif testCase == 3  
-    fileName_mesh = joinpath(geomgramjl_dir(),"assets","obj","Dragon_1.obj")
-    M = load(fileName_mesh)
-    F = [TriangleFace{Int64}(f) for f in faces(M)]
-    V = [Point{3,Float64}(v) for v in coordinates(M)] # Get coordinates 
-elseif testCase == 4
-    fileName_mesh = joinpath(geomgramjl_dir(),"assets","obj","sheep_ulysses.obj")
-    M = load(fileName_mesh)
-    F = [TriangleFace{Int64}(f) for f in faces(M)]
-    V = [Point{3,Float64}(v) for v in coordinates(M)] # Get coordinates 
 end
 
 n = length(V) # Original number of points
