@@ -1,0 +1,17 @@
+# Ignore the temporary file directory in the data folder
+assets/temp
+
+# Ignore vscode settings folder
+*.vscode
+
+# Ignore .backup files
+*.backup
+
+# Ignore Manifest.toml
+./Manifest.toml
+./test/Manifest.toml
+./docs/Manifest.toml
+
+# Code Coverage Files
+./*.cov
+./test/*.cov
