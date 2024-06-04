@@ -5,7 +5,7 @@
 ## Description 
 This project is a Julia wrapper for the [geogram C++ project](https://github.com/BrunoLevy/geogram). 
 
-For the moment the only functionality exposed by this wrapper is the remeshing (`vorpalite`) functionality in Geogram, which enables smooth remeshing of surfaces. Secondly the wrapper currently works by exporting a .obj file, calling geogram as an external executable using `run` with desired parameters set, and importing of the output .obj file. In the future the wrapper should feature a more complete and efficient interface by directly interfacing with the C++ code through Julia (e.g. using `ccall`). 
+For the moment the only functionality exposed by this wrapper is the remeshing (`vorpalite`) functionality in Geogram, which enables smooth remeshing of surfaces. Secondly the wrapper currently works by exporting a .obj file, calling Geogram as an external executable using `run` with desired parameters set, and importing of the output .obj file. In the future the wrapper should feature a more complete and efficient interface by directly interfacing with the C++ code through Julia (e.g. using `ccall`). 
 
 ![](assets/img/ggremesh_example_01.png)  
 
@@ -36,10 +36,10 @@ Under constructionm, basic manual testing is available through the demos in the 
 - [ ] Create proper `ccall`-based interface 
 
 # How to contribute? 
-Your help would be greatly appreciated! If you can contribute please do so by posting a pull-request. I am very much open to fully acknowledging your contributions e.g. by listing you as a contributor properly whereever possible, by welcoming you on board as a long term contributor, or by inviting you to be a co-author on publications featuring geogram.jl functionality. 
+Your help would be greatly appreciated! If you can contribute please do so by posting a pull-request. I am very much open to fully acknowledging your contributions e.g. by listing you as a contributor properly whereever possible, by welcoming you on board as a long term contributor, or by inviting you to be a co-author on publications featuring Geogram.jl functionality. 
 
 # License 
-geogram.jl is released open source under the [MIT license](https://github.com/COMODO-research/Geogram.jl/blob/main/LICENSE).
+Geogram.jl is released open source under the [MIT license](https://github.com/COMODO-research/Geogram.jl/blob/main/LICENSE).
 
 # References and links for Geogram
 
