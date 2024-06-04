@@ -1,5 +1,5 @@
 using GeometryBasics
-using geogram
+using Geogram
 using GLMakie
 using FileIO
 

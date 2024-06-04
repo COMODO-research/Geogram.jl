@@ -1,4 +1,4 @@
-module geogram
+module Geogram
 
 # Import dependancy libraries
 import GeometryBasics
@@ -9,4 +9,4 @@ include("functions.jl")
 # Export imported packages
 export GeometryBasics
 
-end # module geogram
+end # module Geogram
