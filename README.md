@@ -28,6 +28,19 @@ To get started install the package, study the documentation, and test some of th
 # Documentation 
 Under construction, see the demos provided for assistance at the moment. 
 
+# External dependancies
+This project is a wrapper for Geogram. Currently the project ships with executables for `vorpalite` (which is part of geogram) for [Linux, Windows, and Mac](https://github.com/COMODO-research/Geogram.jl/tree/main/ext/geogram). Depending on your operating system, you may want to or need to compile the source yourself, here are some basic instructions for Linux: 
+
+```
+git clone --recurse-submodules https://github.com/BrunoLevy/geogram.git
+cd geogram
+./configure.sh
+cd build/Linux64-gcc-dynamic-Release
+make -j 8
+cp bin/vorpalite <path to Geomgram.jl>/lib_ext/geogram/lin64/bin/vorpalite
+```
+In future releases the above should not be needed as the source code will be called by Julia directly. 
+
 # Testing 
 Under constructionm, basic manual testing is available through the demos in the examples folder. 
 
