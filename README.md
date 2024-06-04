@@ -1,6 +1,6 @@
 # geogram.jl
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/COMODO-research/geogram.jl/blob/main/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/COMODO-research/Geogram.jl/blob/main/LICENSE)
 
 ## Description 
 This project is a Julia wrapper for the [geogram C++ project](https://github.com/BrunoLevy/geogram). 
@@ -12,18 +12,18 @@ For the moment the only functionality exposed by this wrapper is the remeshing (
 # Installation
 ```julia
 julia> ]
-(@v1.xx) pkg> add https://github.com/COMODO-research/geogram.jl
+(@v1.xx) pkg> add https://github.com/COMODO-research/Geogram.jl
 ```
 
 or 
 
 ```julia
 julia> using Pkg
-julia> Pkg.add(url = "https://github.com/COMODO-research/geogram.jl")
+julia> Pkg.add(url = "https://github.com/COMODO-research/Geogram.jl")
 ```
 
 # Getting started
-To get started install the package, study the documentation, and test some of the demos provided in the [`examples`](https://github.com/COMODO-research/geogram.jl/tree/main/examples) folder. 
+To get started install the package, study the documentation, and test some of the demos provided in the [`examples`](https://github.com/COMODO-research/Geogram.jl/tree/main/examples) folder. 
 
 # Documentation 
 Under construction, see the demos provided for assistance at the moment. 
@@ -39,7 +39,7 @@ Under constructionm, basic manual testing is available through the demos in the 
 Your help would be greatly appreciated! If you can contribute please do so by posting a pull-request. I am very much open to fully acknowledging your contributions e.g. by listing you as a contributor properly whereever possible, by welcoming you on board as a long term contributor, or by inviting you to be a co-author on publications featuring geogram.jl functionality. 
 
 # License 
-geogram.jl is released open source under the [MIT license](https://github.com/COMODO-research/geogram.jl/blob/main/LICENSE).
+geogram.jl is released open source under the [MIT license](https://github.com/COMODO-research/Geogram.jl/blob/main/LICENSE).
 
 # References and links for Geogram
 
