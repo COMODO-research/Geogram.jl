@@ -1,4 +1,4 @@
-# geogram.jl
+# Geogram.jl
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/COMODO-research/Geogram.jl/blob/main/LICENSE)
 
