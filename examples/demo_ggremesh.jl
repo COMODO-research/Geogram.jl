@@ -3,7 +3,7 @@ using Geogram
 using GLMakie
 using FileIO
 
-testCase = 1
+testCase = 2
 
 if testCase == 1 
     fileName_mesh = joinpath(geomgramjl_dir(),"assets","obj","femur.obj")
@@ -24,8 +24,8 @@ n = length(V) # Original number of points
 n1 = 10000 
 n2 = 5000
 n3 = 1000
-F1,V1 = ggremesh(F,V; nb_pts=n1, suppress = false)
-F2,V2 = ggremesh(F,V; nb_pts=n2, remesh_anisotropy=0.0, remesh_gradation = 0.5, pre_max_hole_area=100, pre_max_hole_edges=0, post_max_hole_area=100, post_max_hole_edges=0, quiet=0, suppress = false)
+F1,V1 = ggremesh(F,V; nb_pts=n1)
+F2,V2 = ggremesh(F,V; nb_pts=n2, remesh_anisotropy=0.0, remesh_gradation = 1.0, pre_max_hole_area=100, pre_max_hole_edges=0, post_max_hole_area=100, post_max_hole_edges=0, quiet=0, suppress = true)
 F3,V3 = ggremesh(F,V; nb_pts=n3)
 
 ## VISUALISATION
