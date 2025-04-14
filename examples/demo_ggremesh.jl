@@ -1,5 +1,5 @@
-using GeometryBasics
 using Geogram
+using GeometryBasics
 using GLMakie
 using FileIO
 
@@ -19,7 +19,6 @@ end
 
 n = length(V) # Original number of points
 
-
 # Remeshing the surface 
 n1 = 8000 
 n2 = 4000
@@ -35,7 +34,7 @@ strokeWidth1 = 0.5
 fig = Figure(size=(1200,1200))
 
 ax1 = Axis3(fig[1, 1], aspect = :data, xlabel = "X", ylabel = "Y", zlabel = "Z", title = "Original, $n points")
-hp1=poly!(ax1,GeometryBasics.Mesh(V,F),strokewidth=strokeWidth1,color=:white, shading = FastShading)
+hp1 = poly!(ax1,GeometryBasics.Mesh(V,F),strokewidth=strokeWidth1,color=:white, shading = FastShading)
 
 ax2 = Axis3(fig[1, 2], aspect = :data, xlabel = "X", ylabel = "Y", zlabel = "Z", title = "Remeshed, $n1 points")
 hp2 = poly!(ax2,GeometryBasics.Mesh(V1,F1),strokewidth=strokeWidth1,color=:white, shading = FastShading)
