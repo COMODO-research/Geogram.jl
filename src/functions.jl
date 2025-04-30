@@ -13,8 +13,8 @@ export geomgramjl_dir, ggremesh
 
 This function simply returns the string for the geogram.jl path. This is helpful for instance to load items, such as meshes, from the `assets`` folder. 
 """
-function geomgramjl_dir()
-    joinpath(@__DIR__, "..")
+function geomgramjl_dir()    
+    pkgdir(@__MODULE__)
 end
 
 """
