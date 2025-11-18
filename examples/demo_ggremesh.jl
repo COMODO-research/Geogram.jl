@@ -1,6 +1,7 @@
 using Geogram
-using GeometryBasics
-using GLMakie
+using Comodo
+using Comodo.GLMakie
+using Comodo.GeometryBasics
 using FileIO
 
 testCase = 2
@@ -31,20 +32,18 @@ F3,V3 = ggremesh(F,V; nb_pts=n3)
 
 strokeWidth1 = 0.5
 
-fig = Figure(size=(1200,1200))
+fig = Figure(size=(1600,1200))
 
-ax1 = Axis3(fig[1, 1], aspect = :data, xlabel = "X", ylabel = "Y", zlabel = "Z", title = "Original, $n points")
-hp1 = poly!(ax1,GeometryBasics.Mesh(V,F),strokewidth=strokeWidth1,color=:white, shading = FastShading)
+ax1 = AxisGeom(fig[1, 1], title = "Original, $n points")
+hp1 = meshplot!(ax1, F, V, color=:white)
 
-ax2 = Axis3(fig[1, 2], aspect = :data, xlabel = "X", ylabel = "Y", zlabel = "Z", title = "Remeshed, $n1 points")
-hp2 = poly!(ax2,GeometryBasics.Mesh(V1,F1),strokewidth=strokeWidth1,color=:white, shading = FastShading)
+ax2 = AxisGeom(fig[1, 2], title = "Remeshed, $n1 points")
+hp2 = meshplot!(ax2, F1, V1, color=:white)
 
-ax3 = Axis3(fig[2, 1], aspect = :data, xlabel = "X", ylabel = "Y", zlabel = "Z", title = "Remeshed, $n2 points, anisotropic")
-hp3 = poly!(ax3,GeometryBasics.Mesh(V2,F2),strokewidth=strokeWidth1,color=:white, shading = FastShading)
+ax3 = AxisGeom(fig[2, 1], title = "Remeshed, $n2 points, anisotropic")
+hp3 = meshplot!(ax3, F2, V2, color=:white)
 
-ax4 = Axis3(fig[2, 2], aspect = :data, xlabel = "X", ylabel = "Y", zlabel = "Z", title = "Remeshed, $n3 points")
-hp4 = poly!(ax4,GeometryBasics.Mesh(V3,F3),strokewidth=strokeWidth1,color=:white, shading = FastShading)
+ax4 = AxisGeom(fig[2, 2], title = "Remeshed, $n3 points")
+hp4 = meshplot!(ax4, F3, V3, color=:white)
 
 fig
-
-# save(joinpath(geomgramjl_dir(),"assets","temp","ggremesh_$testCase.png"),fig)
