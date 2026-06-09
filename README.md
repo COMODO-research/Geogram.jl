@@ -29,17 +29,26 @@ To get started install the package, study the documentation, and test some of th
 Under construction, see the demos provided for assistance at the moment. 
 
 # External dependancies
-This project is a wrapper for Geogram. Currently the project ships with executables for `vorpalite` (which is part of geogram) for [Linux, Windows, and Mac](https://github.com/COMODO-research/Geogram.jl/tree/main/ext/geogram). Depending on your operating system, you may want to or need to compile the source yourself, here are some basic instructions for Linux: 
-
+This project is a wrapper for Geogram. Currently the project ships with executables for `vorpalite` (which is part of geogram) for [Linux, Windows, and Mac](https://github.com/COMODO-research/Geogram.jl/tree/main/ext/geogram). Depending on your operating system, you may want to or need to compile the source yourself, here are some basic instructions for Linux (requires `cmake`): 
 ```
 git clone --recurse-submodules https://github.com/BrunoLevy/geogram.git
 cd geogram
 ./configure.sh
 cd build/Linux64-gcc-dynamic-Release
 make -j 8
-cp bin/vorpalite <path to Geomgram.jl>/lib_ext/geogram/lin64/bin/vorpalite
+**cp bin/vorpalite** <path to Geomgram.jl>/lib_ext/geogram/lin64/bin/vorpalite
 ```
 In future releases the above should not be needed as the source code will be called by Julia directly. 
+
+The above process requires several dependancies. One approach is to repeatedly run the step `./configure.sh` and to study the error messages. The error messages will tell you what missing dependancy to install (`sudo apt search` can be used to find the right name). On a recent fresh Ubuntu 24.04 installation the following had to be added but this may depend on your system: 
+```bash
+sudo apt install libx11-dev 
+sudo apt install libxrandr-dev
+sudo apt install libxinerama-dev
+sudo apt install libxcursor-dev
+sudo apt install libxi-dev
+sudo apt install libtbb-dev
+```
 
 # Testing 
 Under constructionm, basic manual testing is available through the demos in the examples folder. 

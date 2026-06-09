@@ -1,10 +1,11 @@
 using Geogram
+using Geogram.FileIO
+
 using Comodo
 using Comodo.GLMakie
 using Comodo.GeometryBasics
-using FileIO
 
-testCase = 2
+testCase = 1
 
 if testCase == 1 
     fileName_mesh = joinpath(geomgramjl_dir(),"assets","obj","femur.obj")
