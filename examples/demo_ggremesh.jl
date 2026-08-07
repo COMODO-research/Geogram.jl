@@ -26,7 +26,7 @@ n1 = 8000
 n2 = 4000
 n3 = 1000
 F1,V1 = ggremesh(F,V; nb_pts=n1)
-F2,V2 = ggremesh(F,V; nb_pts=n2, remesh_anisotropy=0.0, remesh_gradation = 1.0, pre_max_hole_area=100, pre_max_hole_edges=0, post_max_hole_area=100, post_max_hole_edges=0, quiet=0, suppress = true)
+F2,V2 = ggremesh(F,V; nb_pts=n2, remesh_anisotropy=1.0, remesh_gradation = 1.0, pre_max_hole_area=100, pre_max_hole_edges=0, post_max_hole_area=100, post_max_hole_edges=0, quiet=0, suppress = true)
 F3,V3 = ggremesh(F,V; nb_pts=n3)
 
 ## VISUALISATION

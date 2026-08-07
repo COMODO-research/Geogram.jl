@@ -1,11 +1,4 @@
 # Call required packages
-
-using GeometryBasics # For point and mesh format
-using FileIO # For loading/saving OBJ files
-using Suppressor # For suppressing run output 
-
-export geomgramjl_dir, ggremesh
-
 """
     geomgramjl_dir()
 
