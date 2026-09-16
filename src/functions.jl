@@ -6,7 +6,7 @@
 
 This function simply returns the string for the geogram.jl path. This is helpful for instance to load items, such as meshes, from the `assets`` folder. 
 """
-function geomgramjl_dir()    
+function geomgramjl_dir()
     pkgdir(@__MODULE__)
 end
 
@@ -76,9 +76,7 @@ _/ ==[pre]====[Preprocessing phase]== __________________________________________
 |  post:compute_normals (=false) : Compute normals                                      |
 
 """
-
-
-function ggremesh(F::Vector{NgonFace{N,TF}},V::Vector{Point{3,TV}}; nb_pts=nothing, remesh_anisotropy=0, remesh_gradation=0.0, pre_max_hole_area=100, pre_max_hole_edges=0, post_max_hole_area=100, post_max_hole_edges=0, quiet=0, suppress = true, cleanup = true) where N where TF<:Integer where TV<:Real
+function ggremesh(F::Vector{NgonFace{N,TF}}, V::Vector{Point{3,TV}}; nb_pts=nothing, remesh_anisotropy=0, remesh_gradation=0.0, pre_max_hole_area=100, pre_max_hole_edges=0, post_max_hole_area=100, post_max_hole_edges=0, quiet=0, suppress=true, cleanup=true) where N where TF<:Integer where TV<:Real
 
     # Process input parameters 
     if isnothing(nb_pts)
@@ -87,47 +85,47 @@ function ggremesh(F::Vector{NgonFace{N,TF}},V::Vector{Point{3,TV}}; nb_pts=nothi
 
     # Get executable path for vorpalite 
     if Sys.islinux()
-        vorpalite_path = joinpath(geomgramjl_dir(),"ext","geogram","lin64","bin","vorpalite")
+        vorpalite_path = joinpath(geomgramjl_dir(), "ext", "geogram", "lin64", "bin", "vorpalite")
     elseif Sys.iswindows()
-        vorpalite_path = joinpath(geomgramjl_dir(),"ext","geogram","win64","bin","vorpalite.exe")
+        vorpalite_path = joinpath(geomgramjl_dir(), "ext", "geogram", "win64", "bin", "vorpalite.exe")
     elseif Sys.isapple()
-        vorpalite_path = joinpath(geomgramjl_dir(),"ext","geogram","mac64","bin","vorpalite")
+        vorpalite_path = joinpath(geomgramjl_dir(), "ext", "geogram", "mac64", "bin", "vorpalite")
     else
-        
+
     end
 
     # Check for temp directory and create if missing
-    tempDir = joinpath(geomgramjl_dir(),"assets","temp")
+    tempDir = joinpath(geomgramjl_dir(), "assets", "temp")
     if !isdir(tempDir)
         mkdir(tempDir)
     end
 
     # Create input mesh file
-    M = GeometryBasics.Mesh(V,F) # Geometry basics mesh 
-    inputMesh =  joinpath(tempDir,"temp.obj") # OBJ file name for input 
-    save(inputMesh,M) # Write to OBJ
+    M = GeometryBasics.Mesh(V, F) # Geometry basics mesh 
+    inputMesh = joinpath(tempDir, "temp.obj") # OBJ file name for input 
+    save(inputMesh, M) # Write to OBJ
 
     # Remesh using geogram's vorpalite 
-    outputMesh =  joinpath(tempDir,"temp_out.obj") # OBJ file name for input     
+    outputMesh = joinpath(tempDir, "temp_out.obj") # OBJ file name for input     
     runCommand = `"$vorpalite_path" "$inputMesh"  "$outputMesh" quiet=$quiet nb_pts=$nb_pts remesh:anisotropy=$remesh_anisotropy remesh:gradation=$remesh_gradation
     pre:max_hole_area=$pre_max_hole_area pre:max_hole_edges=$pre_max_hole_edges post:max_hole_area=$post_max_hole_area post:max_hole_edges=$post_max_hole_edges`
-   
-    if suppress == true 
+
+    if suppress == true
         @suppress run(runCommand)
     elseif suppress == false
         run(runCommand)
     end
 
-    # Get new mesh 
-    M = load(outputMesh) # Import OBJ file 
+    # Get new mesh     
+    @suppress M = load(outputMesh) # Import OBJ file 
     F = [TriangleFace{TF}(f) for f in faces(M)] # Get plain faces
     V = [Point{3,TV}(v) for v in coordinates(M)] # Get coordinates 
 
     # Remove temp directory if requested
     if cleanup == true
-        rm(tempDir,recursive=true)
+        rm(tempDir, recursive=true)
     end
 
-    return F,V
+    return F, V
 end
 
